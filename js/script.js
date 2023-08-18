@@ -1,7 +1,7 @@
 var floatSubMenuTimeout, targetFloatMenu, handleSlimScroll = function () {
     "use strict";
     $.when($("[data-scrollbar=true]").each(function () {
-        generateSlimScroll($(this));
+        //generateSlimScroll($(this));
     })).done(function () {
         $('[data-scrollbar="true"]').mouseover();
     });
@@ -18,7 +18,8 @@ var floatSubMenuTimeout, targetFloatMenu, handleSlimScroll = function () {
                 var e = $(this).closest("li");
                 $(a).is(":visible") ? ($(e).addClass("expand"), $(e).removeClass("closed")) : ($(e).addClass("closed"), $(e).removeClass("expand")), $(e).removeClass("expanding closing");
             }));
-        }), $(".sidebar .nav > .has-sub .sub-menu li.has-sub > a").click(function () {
+        }), 
+		$(".sidebar .nav > .has-sub .sub-menu li.has-sub > a").click(function () {
             if (0 === $(".page-sidebar-minified").length) {
                 var a = $(this).next(".sub-menu");
                 $(a).is(":visible") ? $(a).closest("li").addClass("closing").removeClass("expand") : $(a).closest("li").addClass("expanding").removeClass("closed"), $(a).slideToggle(t, function () {
@@ -26,6 +27,13 @@ var floatSubMenuTimeout, targetFloatMenu, handleSlimScroll = function () {
                     $(a).is(":visible") ? ($(e).addClass("expand"), $(e).removeClass("closed")) : ($(e).addClass("closed"), $(e).removeClass("expand")), $(e).removeClass("expanding closing");
                 });
             }
+        });
+		$("a.main-link").click(function () {
+            var pageUrl = $(this).attr("page");
+			if(pageUrl)
+			{
+				$("#mainFrame").attr("src", pageUrl);
+			}
         });
     },
     handleMobileSidebarToggle = function () {
@@ -88,8 +96,8 @@ var floatSubMenuTimeout, targetFloatMenu, handleSlimScroll = function () {
     },
     handlePageScrollClass = function () {
         $(window).on("scroll", function () {
-            handleCheckScrollClass();
-        }), handleCheckScrollClass();
+            //handleCheckScrollClass();
+        });//handleCheckScrollClass();
     },
     handleMouseoverFloatSubMenu = function (e) {
         clearTimeout(floatSubMenuTimeout);
@@ -216,16 +224,16 @@ var floatSubMenuTimeout, targetFloatMenu, handleSlimScroll = function () {
         var a;
         return {
             init: function (e) {
-                e && (a = e), this.initLocalStorage(), this.initSidebar(), this.initTopMenu(), this.initComponent(), this.initThemePanel(), this.initPageLoad(), $(window).trigger("load"), a && a.ajaxMode && this.initAjax();
+                e && (a = e), this.initLocalStorage(), this.initSidebar(), this.initComponent(), $(window).trigger("load"), a && a.ajaxMode && this.initAjax();
             },
             initSidebar: function () {
-                handleSidebarMenu(), handleMobileSidebarToggle(), handleSidebarMinify(), handleSidebarMinifyFloatMenu(), handleToggleNavProfile(), handleToggleNavbarSearch(), (!a || a && !a.disableSidebarScrollMemory) && handleSidebarScrollMemory();
+                handleSidebarMenu(), handleMobileSidebarToggle(), handleSidebarMinify(), handleSidebarMinifyFloatMenu();
             },
             initSidebarSelection: function () {
                 handleClearSidebarSelection();
             },
             initComponent: function () {
-                (!a || a && !a.disableDraggablePanel) && handleSlimScroll(), handleUnlimitedTabsRender(), handlePanelAction(), handleScrollToTopButton(), handleAfterPageLoadAddClass(), handlePageScrollClass(), 767 < $(window).width() && handelTooltipPopoverActivation();
+                (!a || a && !a.disableDraggablePanel) && handleSlimScroll(), handlePageScrollClass();
             },
             initLocalStorage: function () {
                 (!a || a && !a.disableLocalStorage) && handleLocalStorage();

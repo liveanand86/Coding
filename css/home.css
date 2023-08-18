@@ -1,0 +1,56 @@
+.header h1
+{
+    text-align: center;
+    font-size: xxx-large;
+    color: #0006ffd1;
+}
+
+.header hr
+{
+	border: none;
+	height: 1px;
+	/* Set the hr color */
+	color: #333; /* old IE */
+	background-color: #333; /* Modern Browsers */
+	width: 70%
+}
+
+.main-container
+{
+	border-width: 2px;
+    border-color: red;
+    border-style: solid;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+	background-color: white;
+	border-radius: 20px;
+	height: 500px;
+}
+
+.home-body
+{
+	background-color: #ffe9c8;
+}
+
+.body-container
+{
+	
+}
+
+.home-table
+{
+	margin-left: 16%;
+    width: 80%;
+}
+
+.home-table ul
+{
+	margin-left: 10%;
+}
+
+.home-table td
+{
+	font-size: x-large;
+    font-family: sans-serif;
+}
