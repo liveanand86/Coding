@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Light/Dark Theme Toggle using CSS and Javascript</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'>
+  <link rel="stylesheet" href="css/toggle-button.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<h1>Light / Dark Toggle<br> Button</h1>
+
+<div>
+  <input type="checkbox" class="checkbox" id="checkbox">
+  <label for="checkbox" class="checkbox-label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <span class="ball"></span>
+  </label>
+</div>
+<!-- partial -->
+  <script>
+	const checkbox = document.getElementById("checkbox")
+	checkbox.addEventListener("change", () => 
+	{
+		document.body.classList.toggle("dark")
+	})
+  </script>
+
+</body>
+</html>

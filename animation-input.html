@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Input Field Animation </title>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css'>
+  <link rel="stylesheet" href="css/animation-input.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="input">
+  <input class="input__field" id="password" type="password" required />
+  <label for="password" class="input__label">Password</label>
+  <span class="input__icon-wrapper">
+    <i class="input__icon ri-eye-off-line"></i>
+  </span>
+</div>
+<!-- partial -->
+  <script>
+		const inputIcon = document.querySelector(".input__icon");
+		const inputPassword = document.querySelector(".input__field");
+
+		inputIcon.addEventListener("click", () => 
+		{
+			inputIcon.classList.toggle("ri-eye-off-line");
+			inputIcon.classList.toggle("ri-eye-line");
+			inputPassword.type = inputPassword.type === "password" ? "text" : "password";
+		});
+  </script>
+
+</body>
+</html>
